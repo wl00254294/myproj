@@ -1,18 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+     <vue-extend-layouts />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+import VueExtendLayouts from 'vue-extend-layout'
 
 export default {
   name: 'App',
+  // data() {
+  //  return {
+  //     message: 'test form message'
+  //  };
+ // },
   components: {
-    HelloWorld
-  }
+    VueExtendLayouts
+  },
+  mounted() {},
 }
 </script>
 
