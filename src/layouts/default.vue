@@ -4,8 +4,9 @@
       <div class="layout-content menu-content relative">
         <div class="layout-content h-full absolute-scoll-content">
           <div class="layout-menu-bg shadow-sm  h-full overflow-auto">       
-            <!--<component :is="menuComponent"></component>-->
-            <nmenu></nmenu> 
+            <component :is="menuComponent"></component>
+            <!--<nmenu></nmenu>-->
+             <!-- <inmenu></inmenu>--> 
           </div>
         </div>
       </div>
@@ -25,10 +26,16 @@
 <script>
 
 import nmenu from '../components/menu/leftMenu.vue';
+import inmenu from '../components/menu/leftMenuIview.vue';
 
   export default {
     name: 'defaultLayout',     // you can enter any name (optional)
-    components: { nmenu},
+    components: { nmenu,inmenu},
+    computed: {
+      menuComponent(){
+        return "inmenu"; 
+      }
+    }
    // methods: {}
   }
 </script>
