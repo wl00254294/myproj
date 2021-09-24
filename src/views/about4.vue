@@ -2,7 +2,7 @@
   <div >
     <h2 data-vel="subheader">This is an about page4</h2>
     <div>
-    <AbsTable :columns="columns" v-model="data" @ondelete="cickdelete" @onmodify="clickmodify"></AbsTable>
+    <AbsTable :columns="columns" :value="data" @ondelete="cickdelete" @onmodify="clickmodify"></AbsTable>
     </div>
     <div>
       <Modal v-model="flag" width="800px" >
@@ -28,6 +28,7 @@ import {testSchema} from '../components/tables/schemaDefine'
 export default {
   name: "Abouut4", // you can enter any name (optional)
   components: {},
+  inject:['reload'],
   props: {},
   data() {
     return {
@@ -38,12 +39,10 @@ export default {
     };
   },
   computed:{
-    getData(){
-      return this.data;
-    }
   },
   //mounted() {},
- // watch: {},
+  watch: {
+  },
   methods: {
     cickdelete(val) {
       console.log('click delete from child => '+JSON.stringify(val));
@@ -64,8 +63,10 @@ export default {
             movie:'The Prestige',
             music:'I Cry'
         };
+       
      console.log('click modify from child after change => '+JSON.stringify(this.data[index]));
       this.flag = true;
+      this.reload();
 
     }
   }

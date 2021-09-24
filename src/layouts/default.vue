@@ -28,7 +28,7 @@
           <div
             class="layout-page-bg p-1 router-content shadow-sm overflow-auto"
           >
-            <router-view />
+            <router-view  v-if="isRouterAlive" />
           </div>
         </div>
       </div>
@@ -43,12 +43,17 @@ import inmenu from '../components/menu/leftMenuIview.vue';
 
   export default {
     name: 'defaultLayout',     // you can enter any name (optional)
-    components: { nmenu,inmenu
+    components: { nmenu,inmenu},
+    provide(){    
+      return {
+        reload: this.reload      
+      }
     },
     data() {
     return {
        sflag : true,
-       viewname: "inmenu"
+       viewname: "inmenu",
+       isRouterAlive: true,
     };
    },    
     computed: {
@@ -67,7 +72,12 @@ import inmenu from '../components/menu/leftMenuIview.vue';
         }
 
         //this.$Message.info('开关状态：' + status);
-      }
+      },
+      reload () {
+      console.log('reload occure')
+      this.isRouterAlive = false;
+      this.$nextTick( ()=> { this.isRouterAlive=true } ) ;
+      }    
     }
   }
 </script>

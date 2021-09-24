@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
 library.add(faWindowClose);
+
 Vue.config.productionTip = false;
 Vue.component("AbsPopup", AbsPopup);
 Vue.component("AbsTabs", AbsTabs);
