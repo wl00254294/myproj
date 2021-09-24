@@ -2,7 +2,9 @@
   <div >
     <h2 data-vel="subheader">This is an about page</h2>
     <div>
-        <button @click="showview">使用AbsPopup</button>
+      <Button @click="showview" type="primary">使用AbsPopup</Button>
+      <br/><br/><br/>
+      <Button type="primary" @click="modal1 = true">使用iview Modal</Button>
         <!--等於<AbsPopup :value="showDialog" @input="showDialog = $event"> -->
         <AbsPopup v-model="showDialog" >         
               <div class="recive-content">
@@ -11,6 +13,16 @@
                </div>                
               </div>
         </AbsPopup>
+        
+     <Modal
+        v-model="modal1"
+        title="Common Modal dialog box title">
+        <div slot="header">
+           This is Header  
+        </div>
+        <p>eeee</p>
+    </Modal>
+
     </div>
   </div>
 </template>
@@ -25,7 +37,8 @@ export default {
   props: {},
   data() {
     return {
-      showDialog: false
+      showDialog: false,
+      modal1: false
     };
   },
   //mounted() {},
@@ -34,6 +47,12 @@ export default {
     showview() {
       console.log('showview');
       this.showDialog = true;
+    },
+    ok () {
+      this.$Message.info('Clicked ok');
+    },
+    cancel () {
+      this.$Message.info('Clicked cancel');
     }
   }
 };

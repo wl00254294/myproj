@@ -2,7 +2,7 @@
   <div class="about">
     <h2 data-vel="subheader">This is an about page2</h2>
     <Button @click="butoonaction">Click</Button>
-    <Button type="primary" :disabled="!action">Btest</Button>
+    <Button type="primary" :disabled="!action">{{btntext}}</Button>
     
   </div>
 </template>
@@ -17,12 +17,20 @@ export default {
   props: {},
   data() {
     return {
-      action: true
+      action: true,
+      btntext: 'Enable'
     };
   },
   //mounted() {},
   watch: {
     action(newval,oldval) {
+      if(newval === true)
+      {
+        this.btntext = 'Enable';
+      }else{
+        this.btntext = 'Disable';
+      }
+
       console.log(oldval+' to '+newval);
     }
   },

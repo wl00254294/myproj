@@ -2,10 +2,10 @@
   <div >
     <h2 data-vel="subheader">This is an about page4</h2>
     <div>
-    <AbsTable :columns="columns" :data="data" @ondelete="cickdelete" @onmodify="clickmodify"></AbsTable>
+    <AbsTable :columns="columns" v-model="data" @ondelete="cickdelete" @onmodify="clickmodify"></AbsTable>
     </div>
     <div>
-      <AbsPopup v-model="flag" >
+      <Modal v-model="flag" width="800px" >
         <div>
           <Row>
             <Col span="8" v-for="(key) of Object.entries(rowdata)" :key="key[0]">
@@ -16,7 +16,7 @@
             </Col>
           </Row>
         </div>
-      </AbsPopup>
+      </Modal>
     </div>
   </div>
 </template>
@@ -37,16 +37,36 @@ export default {
       rowdata: Object
     };
   },
+  computed:{
+    getData(){
+      return this.data;
+    }
+  },
   //mounted() {},
  // watch: {},
   methods: {
     cickdelete(val) {
       console.log('click delete from child => '+JSON.stringify(val));
     },
-    clickmodify(val) {
-      console.log('click modify from child => '+JSON.stringify(val));
-      this.rowdata = val; 
+    clickmodify(index) {
+      //console.log('click modify from child => '+JSON.stringify(val));
+      console.log('click modify from child befor change => '+JSON.stringify(this.data[index]));
+      //this.rowdata = this.data[index]; 
+
+      this.data[index] = {
+            name:'Eric Wu222',
+            age:18,
+            address:'New York No. 1 Lake Park',
+            job:'Data engineer',
+            interest:'badminton',
+            birthday:'1991-05-14',
+            book:'Steve Jobs',
+            movie:'The Prestige',
+            music:'I Cry'
+        };
+     console.log('click modify from child after change => '+JSON.stringify(this.data[index]));
       this.flag = true;
+
     }
   }
 };

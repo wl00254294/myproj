@@ -1,5 +1,5 @@
 <template>
-<Table :columns="columns" :data="data">
+<Table :columns="columns" :data="value">
     <template slot-scope="{ row }" slot="name">
         <strong>{{ row.name }}</strong>
     </template>
@@ -17,7 +17,8 @@ export default {
     components:{},
     props:{
         columns :[],
-        data: []
+        //data: [],
+        value:[]
     }, 
     data () {
         return{
@@ -25,13 +26,13 @@ export default {
     },
     methods: {
         deleteItem(index) {
-            console.log(this.data[index]);
-            this.$emit('ondelete',this.data[index]);
-            this.data.splice(index,1);            
+            console.log(this.value[index]);
+            this.$emit('ondelete',this.value[index]);
+            this.value.splice(index,1);            
         },
         modifyItem(index) {
-            console.log('modify ==>'+this.data[index]);
-            this.$emit('onmodify',this.data[index]);
+            console.log('modify ==>'+this.value[index]);
+            this.$emit('onmodify',index);
         }
     }
 }

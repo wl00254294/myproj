@@ -3,7 +3,11 @@
     <h2 data-vel="subheader">This is an about page3</h2>
     <Button type="primary" @click="shoepop">Show Pop</Button>
     <div>{{printPut}}</div>
-    <AbsPopup v-model="flag" :title="info" >  
+    <!--<AbsPopup v-model="flag" :title="info" >  -->
+    <Modal v-model="flag"  width="1340px"
+     @on-ok="clickok"
+     @on-cancel="clickcancel"
+    >  
       <div class="recive-content"> 
         <div class="form-content flex">
           <AbsTabs :items="tabs">
@@ -14,9 +18,7 @@
                   <input type="text" v-model="userPut"/>
                   <br/>
                 </div>
-                <div></div>
-                  <Button type="primary" @click="clickok">OK</Button>
-                  <Button type="primary" @click="clickcancel">Cancel</Button>
+              
               </div>
             </template>
             <template v-slot:test2 >
@@ -25,7 +27,8 @@
           </AbsTabs>
         </div>
       </div>
-    </AbsPopup>
+    </Modal>
+  <!--  </AbsPopup>-->
   </div>
 </template>
 
