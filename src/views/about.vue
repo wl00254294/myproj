@@ -2,7 +2,7 @@
   <div >
     <h2 data-vel="subheader">This is an about page</h2>
     <div>
-        <button @click="showview">Test</button>
+        <button @click="showview">使用AbsPopup</button>
         <!--等於<AbsPopup :value="showDialog" @input="showDialog = $event"> -->
         <AbsPopup v-model="showDialog" >         
               <div class="recive-content">

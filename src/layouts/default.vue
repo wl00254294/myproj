@@ -1,9 +1,22 @@
 <template>
   <div class="flex flex-col default-main text-left">
-    <div class="flex flex-grow">
+    <div class="layout-content ">
+      <div
+      >
+        <div  class="flex items-center">
+          <div class="mx-4">
+          </div>
+          <div class="sys-font mx-4">
+             <i-switch v-model="sflag" @on-change="change" />
+            <span>選單切換</span>
+          </div>
+        </div>
+      </div>
+    </div>    
+    <div class="flex flex-grow"> 
       <div class="layout-content menu-content relative">
         <div class="layout-content h-full absolute-scoll-content">
-          <div class="layout-menu-bg shadow-sm  h-full overflow-auto">       
+          <div class="layout-menu-bg shadow-sm  h-full overflow-auto">                   
             <component :is="menuComponent"></component>
             <!--<nmenu></nmenu>-->
              <!-- <inmenu></inmenu>--> 
@@ -30,13 +43,32 @@ import inmenu from '../components/menu/leftMenuIview.vue';
 
   export default {
     name: 'defaultLayout',     // you can enter any name (optional)
-    components: { nmenu,inmenu},
+    components: { nmenu,inmenu
+    },
+    data() {
+    return {
+       sflag : true,
+       viewname: "inmenu"
+    };
+   },    
     computed: {
       menuComponent(){
-        return "inmenu"; 
+        return this.viewname; 
+      }
+    },
+    methods: {
+      change(status){
+
+        if(status === true)
+        {
+          this.viewname = 'inmenu';
+        }else {
+          this.viewname = 'nmenu';
+        }
+
+        //this.$Message.info('开关状态：' + status);
       }
     }
-   // methods: {}
   }
 </script>
 
@@ -85,7 +117,7 @@ import inmenu from '../components/menu/leftMenuIview.vue';
 }
 .sys-font {
   font-weight: bold;
-  color: #fff;
+  color: rgb(22, 6, 6);
   font-size: 24px;
   text-align: center;
 }
