@@ -32,6 +32,18 @@ export const testSchema= {
             align:'center'
         }
     ],
+    schema:[
+        {column: 'name', datatype: 'string'},
+        {column: 'age', datatype: 'int'},
+        {column: 'address', datatype: 'string'},
+        {column: 'job', datatype: 'string'},
+        {column: 'interest', datatype: 'string'},
+        {column: 'birthday', datatype: 'string'},
+        {column: 'book', datatype: 'string'},
+        {column: 'movie', datatype: 'string'},
+        {column: 'music', datatype: 'string'}
+    ]
+    ,
     data:[
         {
             name:'Eric Wu',
