@@ -14,7 +14,11 @@ const recive = [
     {
         title: "表格控制",
         content: "about4",
-    }    
+    },
+    {
+        title: "樹狀表格",
+        content: "about5",
+    }   
 ];
 
 export default [

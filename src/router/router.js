@@ -5,6 +5,7 @@ import About from '../views/about.vue';
 import About2 from '../views/about2.vue';
 import About3 from '../views/about3.vue';
 import About4 from '../views/about4.vue';
+import About5 from '../views/about5.vue';
 import Initial from '../views/initial.vue';
 
 Vue.use(Router);
@@ -51,7 +52,15 @@ export default new Router({
         meta: {
           layout: 'default'
         }       
-      } 
+      },
+      {
+        path: '/about5',
+        name: 'about5',
+        component: About5,
+        meta: {
+          layout: 'default'
+        }       
+      }        
     ]
   })
 
