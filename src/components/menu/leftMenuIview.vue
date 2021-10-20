@@ -45,7 +45,7 @@ export default {
   data() {
     return {
         items : [{
-            title : '功能區2',
+            title : '功能區23',
             navs: [...menu]
         }],
         themetype: "light"
