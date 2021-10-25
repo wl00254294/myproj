@@ -1,6 +1,6 @@
 # myproj
 
-## Project setup
+## Project setup todo
 ```
 yarn install
 ```
